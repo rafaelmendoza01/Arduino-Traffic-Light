@@ -1,3 +1,14 @@
+
+/*setting up value of pins for the lights, buzzer & button.
+From the LED's perspective, it doesn't matter if the voltage it
+receives is coming from a digital or analogue pin as long as sufficient
+voltage comes from it (after passing through the 1kOhm resistors).
+*/
+
+
+/*The boolean pedestrian variable tells the interrupt that the button has 
+been pressed and thus when back in the main loop, the next branch should go
+to the state where pedestrian lights go green and the traffic turns red*/
 const int GreenLight = A5;
 const int OrangeLight = A4;
 const int RedLight = A3;
@@ -25,7 +36,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // default state is when the traffic light is gree
   digitalWrite(GreenLight, HIGH);
   digitalWrite(PedestrianRed, HIGH);
 
