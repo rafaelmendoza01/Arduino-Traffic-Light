@@ -42,12 +42,18 @@ Unlike in real life, if a countdown timer was included, it would require the Ard
 the sound and counting down on a display screen (since it can't run tasks in parallel like an RPi or FPGA), 
 so as of 17th August 2026, this feature has not been added. 
 
-To let the pedestrians know the time is up a woodpecker 
-sound is added in the end after the main sound when the green pedestrian light is still on.
+To let the pedestrians know the time is up, a woodpecker sound is added in the end after the main sound just before
+the green pedestrian light turns off.
 
 ### Button
 Once pressed, this will activate an interrupt in the Arduino telling it to stop the default state
 (green light and red pedestrian light).
+
+## Flowchart of how the system will operate:
+![Flowchart](FlowChartSystem.png "flowchart of the system") 
+
+This helps visualise how the whole thing will play out on the Arduino as it shows how the Arduino can do it
+all sequentially rather than parallel (one of it's limitations).
 
 
 ## References used:
