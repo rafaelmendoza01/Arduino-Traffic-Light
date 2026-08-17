@@ -1,6 +1,7 @@
-const int GreenLight = 13;
-const int OrangeLight = 12;
-const int RedLight = 11;
+const int GreenLight = A5;
+const int OrangeLight = A4;
+const int RedLight = A3;
+const int Buzzer = A2;
 const int Button = 2;
 bool pedestrian = false;
 
@@ -12,6 +13,7 @@ void setup() {
   pinMode(GreenLight, OUTPUT);
   pinMode(RedLight, OUTPUT);
   pinMode(OrangeLight, OUTPUT);
+  pinMode(Buzzer, OUTPUT);
   pinMode(Button, INPUT);
   attachInterrupt(digitalPinToInterrupt(Button),Pedestrian, RISING);
   
@@ -30,7 +32,10 @@ void loop() {
     digitalWrite(RedLight, HIGH);
 
     //this section waits for time before turning back to green
+    digitalWrite(Buzzer, HIGH);
     delay(5000);
+    digitalWrite(Buzzer, LOW);
+    delay(2000);
 
 
     //this section will turn the state back to green
