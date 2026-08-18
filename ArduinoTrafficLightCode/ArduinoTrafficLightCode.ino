@@ -71,6 +71,12 @@ void Pedestrian(){
 }
 
 //this also controls the pedestrian's Lights
+/*The code that makes the sound and tried to recreate
+the SG/Aus pedestrian crossing sound was generated from Chat Gpt.
+This helped speed up the process as the focus was getting the right 
+or similar sound in place without taking attention away from the whole
+system. The sound is slightly modified to help alert a pedestrian time
+is almost up but it's not too far off from the actual sound */
 void pedestrianCrossSound(){
   digitalWrite(PedestrianRed, LOW);
     for(int i = 0; i < 2; i++){
@@ -106,6 +112,7 @@ void pedestrianCrossSound(){
   
   for(int i = 0; i < 10; i++){
   // Lower "woodpecker" component
+  // This helps tell the pedestrian time is almost over
     tone(Buzzer, 500);
     delay(100);
 

@@ -56,10 +56,31 @@ This helps visualise how the whole thing will play out on the Arduino as it show
 all sequentially rather than parallel (one of it's limitations).
 
 
-## References used:
-- Arduino Documentation
-- ChatGPT
+## Important design consideration:
 
-Whilst using AI is not always the answer, as the world progresses and AI becomes more integrated with
-our lives, lots of people and companies have used it to help speed up the process. it's good to practice
-to get use to using it properly - making sure you understand what it tells and gives you.
+### Using Interrupts
+It is best practice not to use delays inside interrupt functions. Interrupts are meant to be short and inserting a 
+delay can cause problems. The point is to allow the Arduino to continue doing what it was before the interrupt. 
+
+A common work around this is to use a (global) boolean variable that tells the main loop what to do when the interrupt occurs.
+By default, this boolean variable is false (since there's no interrupt), then when the interrupt is active (by a rising edge),
+the interrupt function would change the boolean variable to true. In the main loop, when it sees this variable is now true,
+it goes into a branch of code that the Arduino executes outside it's default state (pedestrian light going green in this case).
+
+---
+### Resistor values (LEDs)
+The current entering the LEDs has been limited with a 1kOhm resistor on each one (connected to the positive terminal of the LED).
+The resistor value can't be too high (otherwise insufficient voltage will power the LED) but it also can't be too low to prevent 
+burning the LEDs. 1kOhm was arbitrary, you could certainly have used a lower resistor values if you.
+
+---
+### Resistor value (push button)
+The push button needed to be tied to 0V by default as the interrupt was triggered by a rising edge. A 5kOhm resistor was used which 
+similar with the LED's resistor values is also arbitrary.
+
+---
+
+## Simplified diagram of the whole system:
+![Diagram of Electrical connections](ElectricalSystem.png)
+
+<video src="TrafficLightDemo.mov" controls width="500"></video>
