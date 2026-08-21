@@ -1,11 +1,13 @@
 # Arduino-Traffic-Light
-A Mini Traffic light system with a basic Arduino set. While not complicated, is a good way to learn and start with embedded programming by applying it to something we are all familiar with.
+A Mini Traffic light system with a basic Arduino set. While not complicated, is a good way to 
+learn and start with embedded programming by applying it to something we are all familiar with.
 ## Components used:
 - Arduino Uno
 - Red LED (x2)
 - Green LED (x2)
 - Yellow/Orange LED
-- 1kOhm Resistors (x5)
+- 1kOhm Resistors (x4)
+- 5.1kOhm Resistor
 - Passive Buzzer
 
 
@@ -83,4 +85,6 @@ similar with the LED's resistor values is also arbitrary.
 ## Simplified diagram of the whole system:
 ![Diagram of Electrical connections](ElectricalSystem.png)
 
-<video src="TrafficLightDemo.mov" controls width="500"></video>
+Video demonstration of the system:
+
+[video demo](https://youtube.com/shorts/YJVgU4p8AgM?si=2R3_QEvwthdUSaOR)
